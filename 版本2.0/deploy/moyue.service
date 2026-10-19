@@ -1,0 +1,34 @@
+[Unit]
+Description=Moyue local-first novel reader
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=moyue
+Group=moyue
+WorkingDirectory=/opt/moyue/current
+ExecStart=/opt/moyue/node/bin/node --max-old-space-size=192 server/index.js
+Environment=NODE_ENV=production
+Environment=MOYUE_HOST=127.0.0.1
+Environment=PORT=8737
+Environment=MOYUE_DATA_DIR=/var/lib/moyue
+Environment=MOYUE_PORT_FILE=0
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=10
+StateDirectory=moyue
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictSUIDSGID=true
+CPUQuota=50%
+MemoryHigh=384M
+MemoryMax=512M
+TasksMax=64
+
+[Install]
+WantedBy=multi-user.target

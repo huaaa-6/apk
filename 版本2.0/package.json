@@ -1,0 +1,20 @@
+{
+  "name": "moyue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "墨阅 · 一间开在本地的小书房，聚合书源的小说阅读器",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "launch": "node launcher.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "novel",
+    "reader",
+    "local-first"
+  ],
+  "license": "MIT"
+}
